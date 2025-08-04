@@ -21,10 +21,3 @@ git add .
 git commit -m "Initial commit"
 git remote add origin https://github.com/Czar22Ke/Shopping-Cart.git
 git push -u origin main
-
-import { mapState } from "vuex";
-computed: mapState(["productsInBag"]),
-state: {
-products: [],
-productsInBag: [],
-},

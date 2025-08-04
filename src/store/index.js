@@ -33,6 +33,30 @@ export default createStore({
         JSON.stringify(state.productsInBag)
       );
     },
+    increaseQ(state, product) {
+      var quantityProduct = state.productsInBag.find(
+        (item) => item.id === product.id
+      );
+      if (quantityProduct) {
+        quantityProduct.quantity++;
+        localStorage.setItem(
+          "productsInBag",
+          JSON.stringify(state.productsInBag)
+        );
+      }
+    },
+    decreaseQ(state, product) {
+      var quantityProduct = state.productsInBag.find(
+        (item) => item.id === product.id
+      );
+      if (quantityProduct) {
+        quantityProduct.quantity--;
+        localStorage.setItem(
+          "productsInBag",
+          JSON.stringify(state.productsInBag)
+        );
+      }
+    },
   },
   actions: {
     loadProducts({ commit }) {

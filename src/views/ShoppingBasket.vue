@@ -21,12 +21,14 @@
             <span class="quantity-area">
               <button
                 :disabled="product.quantity <= 1"
-                @click="product.quantity--"
+                @click="this.$store.commit('decreaseQ', product)"
               >
                 -
               </button>
               <span class="quantity">{{ product.quantity }}</span>
-              <button @click="product.quantity++">+</button>
+              <button @click="this.$store.commit('increaseQ', product)">
+                +
+              </button>
             </span>
             <span class="amount"
               >US$ {{ (product.price * product.quantity).toFixed(2) }}</span
