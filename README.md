@@ -8,11 +8,12 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 
 to start development app
 npm run dev
+Ctrl + C to kill terminal process
 
 https://github.com/Czar22Ke/Shopping-Cart.git
 
 git add .
-git commit -m "Code- update Session"
+git commit -m "Code- final Session"
 git push
 
 git init
@@ -20,3 +21,10 @@ git add .
 git commit -m "Initial commit"
 git remote add origin https://github.com/Czar22Ke/Shopping-Cart.git
 git push -u origin main
+
+import { mapState } from "vuex";
+computed: mapState(["productsInBag"]),
+state: {
+products: [],
+productsInBag: [],
+},
