@@ -8,20 +8,14 @@ export default createStore({
   },
   mutations: {
     loadProducts(state, products) {
-      console.log(products);
       state.products = products;
     },
     loadBag(state, products) {
-      console.log(products);
       state.productsInBag = products;
     },
 
     addToBag(state, product) {
       state.productsInBag.push(product);
-      localStorage.setItem(
-        "productsInBag",
-        JSON.stringify(state.productsInBag)
-      );
     },
     removeFromBag(state, productId) {
       var updatedBag = state.productsInBag.filter(
@@ -68,8 +62,12 @@ export default createStore({
       if (localStorage.getItem("productsInBag"))
         commit("loadBag", JSON.parse(localStorage.getItem("productsInBag")));
     },
-    addToBag({ commit }, product) {
+    addToBag({ commit, state }, product) {
       commit("addToBag", product);
+      localStorage.setItem(
+        "productsInBag",
+        JSON.stringify(state.productsInBag)
+      );
     },
     removeFromBag({ commit }, productId) {
       if (confirm("Do you want to remove item?")) {
